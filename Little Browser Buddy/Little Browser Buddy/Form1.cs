@@ -20,7 +20,6 @@ namespace Little_Browser_Buddy
 
         public void Init() {
             webBrowser1.ScriptErrorsSuppressed = true;
-            string[] history = new string[26];
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -39,8 +38,7 @@ namespace Little_Browser_Buddy
             address = address.Replace("http://", " ");
             address = address.Trim();
             webBrowser1.Navigate("http://" + address);
-
-        }
+           }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -53,6 +51,7 @@ namespace Little_Browser_Buddy
         private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
             label1.Text = "Success";
+            textBox1.Text = webBrowser1.Url.ToString();
             button1.Enabled = true;
             textBox1.Enabled = true;
             Back.Enabled = true;
